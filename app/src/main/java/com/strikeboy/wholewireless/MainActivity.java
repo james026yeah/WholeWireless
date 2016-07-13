@@ -6,10 +6,11 @@ import android.util.Log;
 
 import com.strikeboy.wholewireless.bluetooth.BluetoothWrapper;
 import com.strikeboy.wholewireless.nfc.NfcWrapper;
+import com.strikeboy.wholewireless.utils.LogWrapper;
 import com.strikeboy.wholewireless.wifi.WifiWrapper;
 
 public class MainActivity extends AppCompatActivity {
-    private String TAG = "ruby";
+    private String TAG = "MainActivity";
     private WifiWrapper mWifiWrapper;
     private BluetoothWrapper mBluetoothWrapper;
     private NfcWrapper mNfcWrapper;
@@ -28,15 +29,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if (mWifiWrapper.isReady()) {
-            Log.d(TAG, "wifi is ready");
+            LogWrapper.d(TAG, "wifi is ready");
         }
 
         if (mNfcWrapper.isReady()) {
-            Log.d(TAG, "NFC is ready");
+            LogWrapper.d(TAG, "NFC is ready");
         }
 
         if (mBluetoothWrapper.isReady()) {
-            Log.d(TAG, "Bluetooth is ready");
+            LogWrapper.d(TAG, "Bluetooth is ready");
         }
 
     }
