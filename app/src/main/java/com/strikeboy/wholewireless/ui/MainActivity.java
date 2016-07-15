@@ -1,8 +1,11 @@
 package com.strikeboy.wholewireless.ui;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.strikeboy.wholewireless.R;
 import com.strikeboy.wholewireless.bluetooth.BluetoothWrapper;
@@ -15,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private WifiWrapper mWifiWrapper;
     private BluetoothWrapper mBluetoothWrapper;
     private NfcWrapper mNfcWrapper;
-
+    private Button mRttButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,14 @@ public class MainActivity extends AppCompatActivity {
         mBluetoothWrapper = new BluetoothWrapper(this);
         mNfcWrapper = new NfcWrapper(this);
         setContentView(R.layout.activity_main);
+        mRttButton = (Button) findViewById(R.id.rtt);
+        mRttButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RttActivity.class);
+                startActivity(intent);
+            }
+        });
         LogWrapper.d(TAG, "build version is:" + Build.VERSION.SDK_INT);
     }
 
@@ -44,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (mWifiWrapper.isDeviceToApRttSupported()) {
             LogWrapper.d(TAG,"Device to Ap Rtt supported");
+            mRttButton.setVisibility(View.VISIBLE);
         }
 
         if (mNfcWrapper.isAvailable()) {

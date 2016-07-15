@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WholeWireless</string>
+    <string name="rtt">RTT</string>
 </resources>
