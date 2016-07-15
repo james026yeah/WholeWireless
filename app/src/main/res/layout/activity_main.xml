@@ -21,4 +21,11 @@
         android:layout_height="wrap_content"
         android:text="RTT"
         android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/wifi_signal_monitor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wifi Signal Monitor"
+        android:visibility="gone"/>
 </LinearLayout>

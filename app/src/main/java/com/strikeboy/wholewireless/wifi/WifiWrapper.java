@@ -2,8 +2,13 @@ package com.strikeboy.wholewireless.wifi;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+
+import java.util.List;
 
 /**
  * Created by ruby on 7/13/16.
@@ -20,6 +25,22 @@ public class WifiWrapper {
         //wifi is always available
         return true;
 
+    }
+
+    public void startScan() {
+        mWifiManager.startScan();
+    }
+
+    public WifiInfo getConnectionInfo() {
+        return mWifiManager.getConnectionInfo();
+    }
+
+    public List<WifiConfiguration> getConfiguredNetworks() {
+        return mWifiManager.getConfiguredNetworks();
+    }
+
+    public List<ScanResult> getScanResults() {
+        return mWifiManager.getScanResults();
     }
 
     public boolean isP2pSupported() {
