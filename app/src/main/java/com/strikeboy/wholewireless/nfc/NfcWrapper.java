@@ -15,7 +15,7 @@ public class NfcWrapper {
         mNfcManager = (NfcManager)mContext.getSystemService(Context.NFC_SERVICE);
     }
 
-    public boolean isReady() {
+    public boolean isAvailable() {
         if (mNfcManager.getDefaultAdapter() != null) {
             return true;
         } else {

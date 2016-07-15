@@ -19,11 +19,13 @@ public class BluetoothWrapper {
         mBluetoothAdapter = mBluetoothManager.getAdapter();
     }
 
-    public boolean isReady() {
+    public boolean isAvailable() {
         if (mBluetoothAdapter != null) {
             return true;
         } else {
             return false;
         }
     }
+
+
 }
